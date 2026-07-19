@@ -1,0 +1,2 @@
+[warning] Argument 'codePoint' must be a constant. Try replacing the argument with a constant (C:\Users\axelc\Proyectos\Flutter\educode_mobile\lib\models\app_notification.dart:52:22)
+[warning] Argument 'fontFamily' must be a constant. Try replacing the argument with a constant (C:\Users\axelc\Proyectos\Flutter\educode_mobile\lib\models\app_notification.dart:52:37)
