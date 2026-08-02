@@ -8,6 +8,7 @@ import '../../../models/progress.dart';
 import '../../../models/achievement.dart';
 import '../../../shared/widgets/error_view.dart';
 import '../../../shared/widgets/skeleton_loading.dart';
+import '../../../shared/widgets/traffic_light_progress_bar.dart';
 import '../../shell/mobile_shell.dart';
 
 class ProgressPage extends StatefulWidget {
@@ -293,11 +294,10 @@ class _OverallProgressBar extends StatelessWidget {
           const SizedBox(height: 10),
           ClipRRect(
             borderRadius: BorderRadius.circular(6),
-            child: LinearProgressIndicator(
+            child: TrafficLightProgressBar(
               value: pct / 100,
               minHeight: 10,
               backgroundColor: isDark ? Colors.white12 : const Color(0xFFE2E8F0),
-              valueColor: const AlwaysStoppedAnimation<Color>(AppColors.green),
             ),
           ),
           const SizedBox(height: 6),
@@ -415,18 +415,17 @@ class _ProgressByModule extends StatelessWidget {
                         ),
                     ],
                   ),
-                  if (mp.pct > 0) ...[
-                    const SizedBox(height: 10),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(4),
-                      child: LinearProgressIndicator(
-                        value: mp.pct / 100,
-                        minHeight: 6,
-                        backgroundColor: isDark ? Colors.white12 : const Color(0xFFE2E8F0),
-                        valueColor: AlwaysStoppedAnimation<Color>(color),
+if (mp.pct > 0) ...[
+                      const SizedBox(height: 10),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: TrafficLightProgressBar(
+                          value: mp.pct / 100,
+                          minHeight: 6,
+                          backgroundColor: isDark ? Colors.white12 : const Color(0xFFE2E8F0),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
                 ],
               ),
             ),

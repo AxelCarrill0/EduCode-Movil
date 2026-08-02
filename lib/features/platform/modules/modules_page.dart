@@ -9,6 +9,7 @@ import '../../../models/module.dart';
 import '../../../models/progress.dart';
 import '../../../shared/widgets/error_view.dart';
 import '../../../shared/widgets/skeleton_loading.dart';
+import '../../../shared/widgets/traffic_light_progress_bar.dart';
 import '../../shell/mobile_shell.dart';
 import 'module_detail_page.dart';
 
@@ -204,18 +205,17 @@ class _ModuleCard extends StatelessWidget {
                           color: isDark ? Colors.white60 : AppColors.textSecondary,
                         ),
                       ),
-                      if (pct > 0) ...[
-                        const SizedBox(height: 8),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(4),
-                          child: LinearProgressIndicator(
-                            value: pct / 100,
-                            minHeight: 6,
-                            backgroundColor: isDark ? Colors.white12 : const Color(0xFFE2E8F0),
-                            valueColor: AlwaysStoppedAnimation<Color>(color),
+if (pct > 0) ...[
+                          const SizedBox(height: 8),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(4),
+                            child: TrafficLightProgressBar(
+                              value: pct / 100,
+                              minHeight: 6,
+                              backgroundColor: isDark ? Colors.white12 : const Color(0xFFE2E8F0),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
                     ],
                   ),
                 ),

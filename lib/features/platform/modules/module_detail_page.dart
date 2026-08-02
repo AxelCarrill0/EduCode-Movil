@@ -9,6 +9,7 @@ import '../../../models/module.dart';
 import '../../../models/progress.dart';
 import '../../../shared/widgets/error_view.dart';
 import '../../../shared/widgets/skeleton_loading.dart';
+import '../../../shared/widgets/traffic_light_progress_bar.dart';
 import '../../shell/mobile_shell.dart';
 import 'lesson_page.dart';
 
@@ -272,11 +273,10 @@ class _ProgressHeader extends StatelessWidget {
         const SizedBox(height: 8),
         ClipRRect(
           borderRadius: BorderRadius.circular(6),
-          child: LinearProgressIndicator(
-            value: pct / 100, minHeight: 8,
+          child: TrafficLightProgressBar(
+            value: pct / 100,
+            minHeight: 8,
             backgroundColor: isDark ? Colors.white12 : const Color(0xFFE2E8F0),
-            valueColor: AlwaysStoppedAnimation<Color>(progress.completedModule
-                ? AppColors.green : AppColors.green),
           ),
         ),
       ],

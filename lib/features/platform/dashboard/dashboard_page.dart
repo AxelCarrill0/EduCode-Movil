@@ -12,6 +12,7 @@ import '../../../models/auth_user.dart';
 import '../../../models/module.dart';
 import '../../../models/progress.dart';
 import '../../../shared/widgets/error_view.dart';
+import '../../../shared/widgets/traffic_light_progress_bar.dart';
 import '../../../shared/widgets/skeleton_loading.dart';
 import '../../shell/mobile_shell.dart';
 import '../modules/module_detail_page.dart';
@@ -295,10 +296,10 @@ class _DashboardPageState extends State<DashboardPage> {
                         const SizedBox(height: 4),
                         ClipRRect(
                           borderRadius: BorderRadius.circular(4),
-                          child: LinearProgressIndicator(
-                            value: mp.pct / 100, minHeight: 6,
+                          child: TrafficLightProgressBar(
+                            value: mp.pct / 100,
+                            minHeight: 6,
                             backgroundColor: isDark ? Colors.white12 : const Color(0xFFE2E8F0),
-                            valueColor: AlwaysStoppedAnimation<Color>(color),
                           ),
                         ),
                         const SizedBox(height: 2),
