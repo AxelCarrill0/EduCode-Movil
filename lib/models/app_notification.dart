@@ -43,13 +43,12 @@ class AppNotification {
   };
 
   factory AppNotification.fromJson(Map<String, dynamic> json) {
-    final iconCodePoint = json['icon'] as int;
+    final iconCodePoint = json['icon'] as int? ?? 0xE8AD;
     final iconFontFamily = json['iconFontFamily'] as String?;
     return AppNotification(
       id: json['id'] as String,
       title: json['title'] as String,
       message: json['message'] as String,
-      // ignore: non_const_argument_for_const_parameter
       icon: IconData(iconCodePoint, fontFamily: iconFontFamily),
       color: Color(json['color'] as int),
       createdAt: DateTime.parse(json['createdAt'] as String),
